@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Train Animation</title>
+    
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        #train {
+            position: absolute;
+            left: 0;
+            top: 50px;
+            width: 200px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <img id="train" src="data:image/png;base64,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" alt="Train Animation">
+
+    <h2>Click the following buttons to handle animation</h2>
+    
+    <div class="buttons">
+        <button onclick="startTrain()">Start</button>
+        <button onclick="stopTrain()">Stop</button>
+    </div>
+
+    <script>
+        let train = document.getElementById("train");
+        let position = 0;
+        let speed = 5; // Adjust speed of movement
+        let interval;
+
+        function startTrain() {
+            clearInterval(interval);
+            interval = setInterval(() => {
+                if (position < window.innerWidth - train.width) {
+                    position += speed;
+                    train.style.left = position + "px";
+                } else {
+                    clearInterval(interval);
+                }
+            }, 50);
+        }
+
+        function stopTrain() {
+            clearInterval(interval);
+        }
+    </script>
+
+</body>
+</html>
